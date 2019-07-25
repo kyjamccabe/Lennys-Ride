@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlGame = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // pnlGame
+            // 
+            this.pnlGame.BackColor = System.Drawing.Color.Silver;
+            this.pnlGame.Location = new System.Drawing.Point(12, 73);
+            this.pnlGame.Name = "pnlGame";
+            this.pnlGame.Size = new System.Drawing.Size(538, 376);
+            this.pnlGame.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(700, 461);
+            this.Controls.Add(this.pnlGame);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -42,6 +52,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlGame;
     }
 }
 
