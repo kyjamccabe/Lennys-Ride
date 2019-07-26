@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FrmRide
 {
-    public partial class Form1 : Form
+    public partial class frmRide : Form
     {
-        public Form1()
+        public frmRide()
         {
             InitializeComponent();
         }
