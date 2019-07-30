@@ -12,7 +12,7 @@ namespace FrmRide
 
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
-        public Image player;//variable for the planet's image
+        public Image player;//variable for the player's image
 
         public Rectangle playerRec;//variable for a rectangle to place our image in
         //Create a constructor (initialises the values of the fields)
@@ -38,7 +38,7 @@ namespace FrmRide
 
             if (move == "right")
             {
-                if (playerRec.Location.X > 450) // is spaceship within 50 of right side
+                if (playerRec.Location.X > 450) // is player within 50 of right side
                 {
 
                     x = 450;
@@ -54,7 +54,7 @@ namespace FrmRide
 
             if (move == "left")
             {
-                if (playerRec.Location.X < 10) // is spaceship within 10 of left side
+                if (playerRec.Location.X < 10) // is player within 10 of left side
                 {
 
                     x = 10;
