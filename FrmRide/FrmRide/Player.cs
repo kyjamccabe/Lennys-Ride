@@ -38,10 +38,10 @@ namespace FrmRide
 
             if (move == "right")
             {
-                if (playerRec.Location.X > 450) // is player within 50 of right side
+                if (playerRec.Location.X > 470) // is player within 50 of right side
                 {
 
-                    x = 450;
+                    x = 470;
                     playerRec.Location = new Point(x, y);
                 }
                 else

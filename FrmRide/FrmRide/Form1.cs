@@ -19,6 +19,7 @@ namespace FrmRide
 
         Graphics g; //declare a graphics object called g
         Player player = new Player();
+        Rock rock1 = new Rock(); //create the object, planet1
 
         public frmRide()
         {
@@ -58,6 +59,7 @@ namespace FrmRide
             //get the graphics used to paint on the panel control
             g = e.Graphics;
             player.drawPlayer(g);
+            rock1.drawRock(g);
         }
     }
 }

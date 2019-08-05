@@ -38,6 +38,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tmrRock1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pnlGame
@@ -125,11 +129,46 @@
             this.tmrPlayer.Interval = 1;
             this.tmrPlayer.Tick += new System.EventHandler(this.tmrPlayer_Tick);
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(561, 98);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 9;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(561, 371);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(127, 36);
+            this.btnStart.TabIndex = 10;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(561, 413);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(127, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Stop";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tmrRock1
+            // 
+            this.tmrRock1.Enabled = true;
+            this.tmrRock1.Interval = 1;
+            // 
             // frmRide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 461);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblLives);
@@ -159,6 +198,10 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer tmrPlayer;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer tmrRock1;
     }
 }
 
