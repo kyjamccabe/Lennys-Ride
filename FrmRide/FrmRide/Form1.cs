@@ -20,11 +20,18 @@ namespace FrmRide
         Graphics g; //declare a graphics object called g
         Player player = new Player();
         Rock rock1 = new Rock(); //create the object, planet1
+        Enemy[] enemy = new Enemy[3];
+
 
         public frmRide()
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
+            for (int i = 0; i < 3; i++)
+            {
+                enemy[i] = new Enemy();
+            }
+
         }
 
         private void frmRide_KeyDown(object sender, KeyEventArgs e)
@@ -60,6 +67,12 @@ namespace FrmRide
             g = e.Graphics;
             player.drawPlayer(g);
             rock1.drawRock(g);
+            for (int i = 0; i < 3; i++)
+            {
+                //call the Planet class's drawPlanet method to draw the images
+                enemy[i].drawEnemy(g);
+            }
+
         }
     }
 }
