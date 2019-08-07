@@ -15,9 +15,9 @@ namespace FrmRide
         public Rectangle enemyRec;//variable for a rectangle to place our image in
         public int score;
         //Create a constructor (initialises the values of the fields)
-        public Enemy(int spacing)
+        public Enemy()
         {
-            x = spacing;
+            x = 500;
             y = 10;
             width = 50;
             height = 50;
