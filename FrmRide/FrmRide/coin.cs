@@ -7,43 +7,47 @@ using System.Threading.Tasks;
 
 namespace FrmRide
 {
-    class Rock
+    class Coin
     {
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
-        public Image rock;//variable for the planet's image
+        public Image coin;//variable for the planet's image
 
-        public Rectangle rockRec;//variable for a rectangle to place our image in
+        public Rectangle coinRec;//variable for a rectangle to place our image in
         Random rnd = new Random();
-        
+
         //Create a constructor (initialises the values of the fields)
-        public Rock()
+        public Coin()
         {
-            x = 500;
+            x = 520;
             y = 315;
-            width = 50;
-            height = 40;
-            rock = Image.FromFile("rock1.png");
-            rockRec = new Rectangle(x, y, width, height);
-        }
-        
-        // Methods for the Planet class
-        public void drawRock(Graphics g)
-        {
-            g.DrawImage(rock, rockRec);
+            width = 30;
+            height = 30;
+            coin = Image.FromFile("coin.png");
+            coinRec = new Rectangle(x, y, width, height);
         }
 
-        public void moveRock()
+        // Methods for the Planet class
+        public void drawCoin(Graphics g)
+        {
+            g.DrawImage(coin, coinRec);
+        }
+
+        public void moveCoin()
         {
             if (x <= -50)
             {
                 x = 500 + rnd.Next(100, 600);
-                rockRec.Location = new Point(x, y);
+                coinRec.Location = new Point(x, y);
             }
             else
             {
                 x -= 5;
-                rockRec.Location = new Point(x, y);
+                coinRec.Location = new Point(x, y);
+            }
+            if (x == 500)
+            {
+                y = 200 + rnd.Next(-10, 10);
             }
         }
     }

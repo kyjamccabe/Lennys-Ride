@@ -33,15 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblLives = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.tmrPlayer = new System.Windows.Forms.Timer(this.components);
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tmrRock1 = new System.Windows.Forms.Timer(this.components);
+            this.tmrRock = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // pnlGame
@@ -83,26 +81,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Name";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(557, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 21);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Lives";
-            // 
-            // lblLives
-            // 
-            this.lblLives.AutoSize = true;
-            this.lblLives.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLives.Location = new System.Drawing.Point(565, 150);
-            this.lblLives.Name = "lblLives";
-            this.lblLives.Size = new System.Drawing.Size(18, 21);
-            this.lblLives.TabIndex = 6;
-            this.lblLives.Text = "5";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -113,15 +91,15 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Score";
             // 
-            // label6
+            // lblScore
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(561, 196);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 21);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "0";
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.Location = new System.Drawing.Point(561, 196);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(18, 21);
+            this.lblScore.TabIndex = 8;
+            this.lblScore.Text = "0";
             // 
             // tmrPlayer
             // 
@@ -156,10 +134,11 @@
             this.button1.Text = "Stop";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // tmrRock1
+            // tmrRock
             // 
-            this.tmrRock1.Enabled = true;
-            this.tmrRock1.Interval = 1;
+            this.tmrRock.Enabled = true;
+            this.tmrRock.Interval = 1;
+            this.tmrRock.Tick += new System.EventHandler(this.tmrRock1_Tick);
             // 
             // frmRide
             // 
@@ -169,10 +148,8 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblLives);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -193,15 +170,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblLives;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Timer tmrPlayer;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer tmrRock1;
+        private System.Windows.Forms.Timer tmrRock;
     }
 }
 

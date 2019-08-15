@@ -18,12 +18,15 @@ namespace FrmRide
         bool jump;
         int Gravity = 1;
         int YSpeed = 20;
+        int score = 0;
         bool NotOnGround = true;
         string move;
 
         Graphics g; //declare a graphics object called g
         Player player = new Player();
-        Rock rock1 = new Rock(); //create the object, planet1
+        Rock rock = new Rock(); //create the object, planet1
+        Coin coin = new Coin();
+        Random rnd = new Random();
 
 
         public frmRide()
@@ -81,12 +84,34 @@ namespace FrmRide
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
 
+        private void tmrRock1_Tick(object sender, EventArgs e)
+        {
+            rock.moveRock();
+            coin.moveCoin();
+
+            if (player.playerRec.IntersectsWith(rock.rockRec))
+            {
+                tmrRock.Enabled = false;
+                tmrPlayer.Enabled = false;
+            }
+
+            if (player.playerRec.IntersectsWith(coin.coinRec))
+            {
+                score += 1;
+                lblScore.Text = score.ToString();
+                coin.x = 500 + rnd.Next(100, 600);
+            }
+
+            pnlGame.Invalidate();//makes the paint event fire to redraw the panel
+        }
+
         private void pnlGame_Paint(object sender, PaintEventArgs e)
         {
             //get the graphics used to paint on the panel control
             g = e.Graphics;
             player.drawPlayer(g);
-            rock1.drawRock(g);
+            rock.drawRock(g);
+            coin.drawCoin(g);
         }
     }
 }
