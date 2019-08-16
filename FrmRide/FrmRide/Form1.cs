@@ -84,7 +84,7 @@ namespace FrmRide
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
 
-        private void tmrRock1_Tick(object sender, EventArgs e)
+        private void tmrRock_Tick(object sender, EventArgs e)
         {
             rock.moveRock();
             coin.moveCoin();

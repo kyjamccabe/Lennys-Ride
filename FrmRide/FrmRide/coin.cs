@@ -11,7 +11,7 @@ namespace FrmRide
     {
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
-        public Image coin;//variable for the planet's image
+        public Image coin;//variable for the coin's image
 
         public Rectangle coinRec;//variable for a rectangle to place our image in
         Random rnd = new Random();

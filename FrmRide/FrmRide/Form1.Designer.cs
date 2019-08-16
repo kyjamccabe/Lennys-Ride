@@ -138,7 +138,7 @@
             // 
             this.tmrRock.Enabled = true;
             this.tmrRock.Interval = 1;
-            this.tmrRock.Tick += new System.EventHandler(this.tmrRock1_Tick);
+            this.tmrRock.Tick += new System.EventHandler(this.tmrRock_Tick);
             // 
             // frmRide
             // 
