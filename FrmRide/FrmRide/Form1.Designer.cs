@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRide));
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,16 +42,29 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tmrRock = new System.Windows.Forms.Timer(this.components);
+            this.pnlGame.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGame
             // 
             this.pnlGame.BackColor = System.Drawing.Color.Silver;
+            this.pnlGame.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlGame.BackgroundImage")));
+            this.pnlGame.Controls.Add(this.pictureBox1);
             this.pnlGame.Location = new System.Drawing.Point(12, 73);
             this.pnlGame.Name = "pnlGame";
             this.pnlGame.Size = new System.Drawing.Size(538, 376);
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 354);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(538, 22);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -144,6 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(700, 461);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStart);
@@ -159,6 +175,8 @@
             this.Text = "Big Lenny\'s Wild Ride";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmRide_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmRide_KeyUp);
+            this.pnlGame.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,6 +195,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer tmrRock;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
