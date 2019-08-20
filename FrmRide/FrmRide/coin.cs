@@ -19,7 +19,7 @@ namespace FrmRide
         //Create a constructor (initialises the values of the fields)
         public Coin()
         {
-            x = 520;
+            x = 550;
             y = 315;
             width = 30;
             height = 30;
@@ -45,7 +45,7 @@ namespace FrmRide
                 x -= 5;
                 coinRec.Location = new Point(x, y);
             }
-            if (x == 500)
+            if (x == 540)
             {
                 y = 200 + rnd.Next(-10, 10);
             }

@@ -19,7 +19,7 @@ namespace FrmRide
         //Create a constructor (initialises the values of the fields)
         public Rock()
         {
-            x = 500;
+            x = 550;
             y = 315;
             width = 50;
             height = 40;

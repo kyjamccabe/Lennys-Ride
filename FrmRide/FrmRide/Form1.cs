@@ -130,6 +130,18 @@ namespace FrmRide
             coin.drawCoin(g);
         }
 
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            tmrRock.Enabled = true;
+            tmrPlayer.Enabled = true;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            tmrRock.Enabled = false;
+            tmrPlayer.Enabled = false;
+        }
+
         private void speed()
         {
             if (score >= 5)
