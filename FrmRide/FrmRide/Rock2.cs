@@ -19,10 +19,10 @@ namespace FrmRide
         //Create a constructor (initialises the values of the fields)
         public Rock2()
         {
-            x = 600;
-            y = 315;
-            width = 45;
-            height = 60;
+            x = 900;
+            y = 290;
+            width = 50;
+            height = 80;
             rock2 = Image.FromFile("rock2.png");
             rock2Rec = new Rectangle(x, y, width, height);
         }
@@ -37,12 +37,12 @@ namespace FrmRide
         {
             if (x <= -10)
             {
-                x = 600 + rnd.Next(100, 600);
+                x = 500 + rnd.Next(50, 800);
                 rock2Rec.Location = new Point(x, y);
             }
             else
             {
-                x -= 5;
+                x -= 2;
                 rock2Rec.Location = new Point(x, y);
             }
         }

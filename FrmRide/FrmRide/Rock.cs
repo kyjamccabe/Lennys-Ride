@@ -42,7 +42,7 @@ namespace FrmRide
             }
             else
             {
-                x -= 5;
+                x -= 2;
                 rockRec.Location = new Point(x, y);
             }
         }

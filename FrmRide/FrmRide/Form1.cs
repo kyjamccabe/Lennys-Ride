@@ -115,6 +115,8 @@ namespace FrmRide
                 coin.x = 500 + rnd.Next(100, 600);
             }
 
+            speed();
+
             pnlGame.Invalidate();//makes the paint event fire to redraw the panel
         }
 
@@ -126,6 +128,33 @@ namespace FrmRide
             rock.drawRock(g);
             rock2.drawRock2(g);
             coin.drawCoin(g);
+        }
+
+        private void speed()
+        {
+            if (score >= 5)
+            {
+                rock2.x -= 2;
+                rock.x -= 2;
+            }
+
+            if (score >= 10)
+            {
+                rock2.x -= 2;
+                rock.x -= 2;
+            }
+
+            if (score >= 15)
+            {
+                rock2.x -= 2;
+                rock.x -= 2;
+            }
+
+            if (score >= 20)
+            {
+                rock2.x -= 2;
+                rock.x -= 2;
+            }
         }
     }
 }
