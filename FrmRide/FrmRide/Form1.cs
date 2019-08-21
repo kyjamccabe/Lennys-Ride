@@ -14,11 +14,12 @@ namespace FrmRide
     public partial class frmRide : Form
     {
 
-        bool left, right;
-        bool jump;
+        bool left, right, jump, reset;
+        bool text;
         int Gravity = 1;
         int YSpeed = 20;
         int score = 0;
+        int highscore = 0;
         bool NotOnGround = true;
         string move;
 
@@ -41,12 +42,14 @@ namespace FrmRide
             if (e.KeyData == Keys.Left) { left = true; }
             if (e.KeyData == Keys.Right) { right = true; }
             if (e.KeyData == Keys.Up) { jump = true; }
+            if (e.KeyData == Keys.R) { reset = true;  }
         }
 
         private void frmRide_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left) { left = false; }
             if (e.KeyData == Keys.Right) { right = false; }
+            if (e.KeyData == Keys.R) { reset = false; }
         }
 
         private void tmrPlayer_Tick(object sender, EventArgs e)
@@ -100,12 +103,24 @@ namespace FrmRide
             {
                 tmrRock.Enabled = false;
                 tmrPlayer.Enabled = false;
+                tmrReset.Enabled = true;
+                if (score > highscore)
+                {
+                    lblHighscore.Text = txtName.Text + ": " + score.ToString();
+                    highscore = score;
+                }
             }
 
             if (player.playerRec.IntersectsWith(rock2.rock2Rec))
             {
                 tmrRock.Enabled = false;
                 tmrPlayer.Enabled = false;
+                tmrReset.Enabled = true;
+                if (score > highscore)
+                {
+                    lblHighscore.Text = txtName.Text + ": " + score.ToString();
+                    highscore = score;
+                }
             }
 
             if (player.playerRec.IntersectsWith(coin.coinRec))
@@ -130,16 +145,56 @@ namespace FrmRide
             coin.drawCoin(g);
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            tmrRock.Enabled = true;
-            tmrPlayer.Enabled = true;
+            if (text == true)
+            {
+                tmrRock.Enabled = true;
+                tmrPlayer.Enabled = true;
+                txtName.ReadOnly = true;
+            }
+            else
+            {
+                lblError.Text = "Please enter text";
+            }
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            text = true;
+            lblError.Text = "";
+        }
+
+        private void frmRide_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Welcome to Big Lenny's Wild Ride. \nUse the arrow keys to move. \nAvoid the rocks and get the coins. \nEnter your name so youre highscore can be recorded. \nEnjoy!","Instructions");
+        }
+
+        private void mnuStop_Click(object sender, EventArgs e)
         {
             tmrRock.Enabled = false;
             tmrPlayer.Enabled = false;
+        }
+
+        private void tmrReset_Tick(object sender, EventArgs e)
+        {
+            if (tmrRock.Enabled == false && tmrPlayer.Enabled == false)
+            {
+                lblRestart.Visible = true;
+
+                if (reset == true)
+                {
+                    restart();
+                }
+            }
         }
 
         private void speed()
@@ -167,6 +222,25 @@ namespace FrmRide
                 rock2.x -= 2;
                 rock.x -= 2;
             }
+        }
+
+        private void restart()
+        {
+            rock.x = 550;
+            rock2.x = 900;
+            player.x = 10;
+            player.y = 300;
+            coin.x = 550;
+            coin.y = 315;
+            score = 0;
+            tmrRock.Enabled = true;
+            tmrPlayer.Enabled = true;
+            tmrReset.Enabled = false;
+            rock.moveRock();
+            rock2.moveRock2();
+            coin.moveCoin();
+            player.movePlayer(move);
+            lblRestart.Visible = false;
         }
     }
 }
