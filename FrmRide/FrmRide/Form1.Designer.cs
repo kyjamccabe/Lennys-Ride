@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRide));
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.lblRestart = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.mnuStop = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
-            this.lblRestart = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblHighscore = new System.Windows.Forms.Label();
             this.pnlGame.SuspendLayout();
@@ -64,6 +64,17 @@
             this.pnlGame.Size = new System.Drawing.Size(538, 376);
             this.pnlGame.TabIndex = 0;
             this.pnlGame.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlGame_Paint);
+            // 
+            // lblRestart
+            // 
+            this.lblRestart.AutoSize = true;
+            this.lblRestart.Font = new System.Drawing.Font("Goudy Old Style", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRestart.Location = new System.Drawing.Point(146, 17);
+            this.lblRestart.Name = "lblRestart";
+            this.lblRestart.Size = new System.Drawing.Size(237, 36);
+            this.lblRestart.TabIndex = 14;
+            this.lblRestart.Text = "Press R to restart.";
+            this.lblRestart.Visible = false;
             // 
             // pictureBox1
             // 
@@ -122,6 +133,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(555, 185);
+            this.txtName.MaxLength = 12;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 9;
@@ -188,17 +200,6 @@
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(0, 20);
             this.lblError.TabIndex = 13;
-            // 
-            // lblRestart
-            // 
-            this.lblRestart.AutoSize = true;
-            this.lblRestart.Font = new System.Drawing.Font("Goudy Old Style", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRestart.Location = new System.Drawing.Point(146, 17);
-            this.lblRestart.Name = "lblRestart";
-            this.lblRestart.Size = new System.Drawing.Size(237, 36);
-            this.lblRestart.TabIndex = 14;
-            this.lblRestart.Text = "Press R to restart.";
-            this.lblRestart.Visible = false;
             // 
             // label4
             // 
