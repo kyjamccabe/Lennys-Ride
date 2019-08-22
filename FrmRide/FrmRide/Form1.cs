@@ -175,7 +175,7 @@ namespace FrmRide
 
         private void frmRide_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Welcome to Big Lenny's Wild Ride. \nUse the arrow keys to move. \nAvoid the rocks and get the coins. \nEnter your name so youre highscore can be recorded. \nEnjoy!","Instructions");
+            MessageBox.Show("Welcome to Big Lenny's Wild Ride. \nUse the arrow keys to move. \nAvoid the rocks and get the coins. \nEnter your name so youre highscore can be recorded. \nYou only have one life, so use it wisely. \nEnjoy!","Instructions");
         }
 
         private void mnuStop_Click(object sender, EventArgs e)
