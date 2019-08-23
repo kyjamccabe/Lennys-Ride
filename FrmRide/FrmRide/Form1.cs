@@ -81,6 +81,7 @@ namespace FrmRide
                     NotOnGround = true;
                     player.movePlayer(move);
                 }
+
                 if (player.y == 300)
                 {
                     YSpeed = 20;
@@ -88,11 +89,6 @@ namespace FrmRide
                     bugfix = false;
                     player.movePlayer(move);
                 }
-            } 
-            
-            if (player.y > 301)
-            {
-                player.y = 300;
             }
 
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
@@ -259,7 +255,7 @@ namespace FrmRide
             else
             {
                 player.y = 300;
-            }
+            }            
 
             coin.x = 550;
             coin.y = 315;

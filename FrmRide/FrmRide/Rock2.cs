@@ -20,9 +20,9 @@ namespace FrmRide
         public Rock2()
         {
             x = 900;
-            y = 290;
+            y = 310;
             width = 50;
-            height = 80;
+            height = 90;
             rock2 = Image.FromFile("rock2.png");
             rock2Rec = new Rectangle(x, y, width, height);
         }
@@ -35,9 +35,9 @@ namespace FrmRide
 
         public void moveRock2()
         {
-            if (x <= -10)
+            if (x <= -50)
             {
-                x = 500 + rnd.Next(50, 800);
+                x = 500 + rnd.Next(500, 1000);
                 rock2Rec.Location = new Point(x, y);
             }
             else
