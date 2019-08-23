@@ -193,6 +193,7 @@ namespace FrmRide
             tmrRock.Enabled = false;
             tmrPlayer.Enabled = false;
             tmrAnim.Enabled = false;
+            mnuStart.Enabled = true;
         }
 
         private void tmrAnim_Tick(object sender, EventArgs e)
