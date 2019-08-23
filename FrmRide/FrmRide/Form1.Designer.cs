@@ -48,6 +48,7 @@
             this.lblError = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblHighscore = new System.Windows.Forms.Label();
+            this.tmrAnim = new System.Windows.Forms.Timer(this.components);
             this.pnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -220,6 +221,11 @@
             this.lblHighscore.Size = new System.Drawing.Size(0, 21);
             this.lblHighscore.TabIndex = 15;
             // 
+            // tmrAnim
+            // 
+            this.tmrAnim.Enabled = true;
+            this.tmrAnim.Tick += new System.EventHandler(this.tmrAnim_Tick);
+            // 
             // frmRide
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +280,7 @@
         private System.Windows.Forms.Label lblRestart;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblHighscore;
+        private System.Windows.Forms.Timer tmrAnim;
     }
 }
 

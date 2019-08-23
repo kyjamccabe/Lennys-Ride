@@ -13,6 +13,8 @@ namespace FrmRide
         // declare fields to use in the class
         public int x, y, width, height;//variables for the rectangle
         public Image player;//variable for the player's image
+        int count;
+        Image[] images = new Image[9];
 
         public Rectangle playerRec;//variable for a rectangle to place our image in
         //Create a constructor (initialises the values of the fields)
@@ -65,6 +67,25 @@ namespace FrmRide
                     x -= 5;
                     playerRec.Location = new Point(x, y);
                 }
+            }
+        }
+
+        public void anim1()
+        {
+            for (int i = 1; i <= 8; i++)
+            { 
+                images[i] = Image.FromFile("walk" + i.ToString() + ".png");
+            }
+            player = images[1];            
+        }
+
+        public void anim2()
+        {
+            player = images[count];
+            count++;
+            if (count > 8)
+            {
+                count = 1;
             }
         }
     }

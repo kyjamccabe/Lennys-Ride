@@ -16,6 +16,7 @@ namespace FrmRide
 
         bool left, right, jump, reset;
         bool text;
+        bool bugfix;
         int Gravity = 1;
         int YSpeed = 20;
         int score = 0;
@@ -35,6 +36,7 @@ namespace FrmRide
         {
             InitializeComponent();
             typeof(Panel).InvokeMember("DoubleBuffered", BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic, null, pnlGame, new object[] { true });
+            player.anim1();
         }
 
         private void frmRide_KeyDown(object sender, KeyEventArgs e)
@@ -67,6 +69,7 @@ namespace FrmRide
             if (jump == true)
             {
                 move = "jump";
+                bugfix = true;
                 if (NotOnGround == true)
                 {
                     YSpeed = YSpeed - Gravity;
@@ -82,9 +85,16 @@ namespace FrmRide
                 {
                     YSpeed = 20;
                     jump = false;
+                    bugfix = false;
                     player.movePlayer(move);
                 }
+            } 
+            
+            if (player.y > 301)
+            {
+                player.y = 300;
             }
+
             pnlGame.Invalidate(); //makes the paint event fire to redraw the panel
         }
 
@@ -93,6 +103,12 @@ namespace FrmRide
             rock.moveRock();
             rock2.moveRock2();
             coin.moveCoin();
+
+            if (score > highscore)
+            {
+                lblHighscore.Text = txtName.Text + ": " + score.ToString();
+                highscore = score;
+            }
 
             if (rock.rockRec.IntersectsWith(rock2.rock2Rec))
             {
@@ -103,24 +119,18 @@ namespace FrmRide
             {
                 tmrRock.Enabled = false;
                 tmrPlayer.Enabled = false;
+                tmrAnim.Enabled = false;
                 tmrReset.Enabled = true;
-                if (score > highscore)
-                {
-                    lblHighscore.Text = txtName.Text + ": " + score.ToString();
-                    highscore = score;
-                }
+                mnuStart.Enabled = false;
             }
 
             if (player.playerRec.IntersectsWith(rock2.rock2Rec))
             {
                 tmrRock.Enabled = false;
                 tmrPlayer.Enabled = false;
+                tmrAnim.Enabled = false;
                 tmrReset.Enabled = true;
-                if (score > highscore)
-                {
-                    lblHighscore.Text = txtName.Text + ": " + score.ToString();
-                    highscore = score;
-                }
+                mnuStart.Enabled = false;
             }
 
             if (player.playerRec.IntersectsWith(coin.coinRec))
@@ -182,6 +192,13 @@ namespace FrmRide
         {
             tmrRock.Enabled = false;
             tmrPlayer.Enabled = false;
+            tmrAnim.Enabled = false;
+        }
+
+        private void tmrAnim_Tick(object sender, EventArgs e)
+        {
+            player.anim2();
+            Invalidate();
         }
 
         private void tmrReset_Tick(object sender, EventArgs e)
@@ -203,24 +220,28 @@ namespace FrmRide
             {
                 rock2.x -= 2;
                 rock.x -= 2;
+                tmrAnim.Interval = 50;
             }
 
             if (score >= 10)
             {
                 rock2.x -= 2;
                 rock.x -= 2;
+                tmrAnim.Interval = 25;
             }
 
             if (score >= 15)
             {
                 rock2.x -= 2;
                 rock.x -= 2;
+                tmrAnim.Interval = 12;
             }
 
             if (score >= 20)
             {
                 rock2.x -= 2;
                 rock.x -= 2;
+                tmrAnim.Interval = 6;
             }
         }
 
@@ -229,12 +250,22 @@ namespace FrmRide
             rock.x = 550;
             rock2.x = 900;
             player.x = 10;
-            player.y = 300;
+
+            if (bugfix == true)
+            {
+                player.y = 200;
+            }
+            else
+            {
+                player.y = 300;
+            }
+
             coin.x = 550;
             coin.y = 315;
             score = 0;
             tmrRock.Enabled = true;
             tmrPlayer.Enabled = true;
+            tmrAnim.Enabled = true;
             tmrReset.Enabled = false;
             rock.moveRock();
             rock2.moveRock2();
