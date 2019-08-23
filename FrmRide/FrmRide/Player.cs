@@ -10,13 +10,13 @@ namespace FrmRide
     class Player
     {
 
-        // declare fields to use in the class
-        public int x, y, width, height;//variables for the rectangle
-        public Image player;//variable for the player's image
+        //Declare fields to use in the class
+        public int x, y, width, height;//Variables for the rectangle
+        public Image player;//Variable for the player's image
         int count;
-        Image[] images = new Image[9];
+        Image[] images = new Image[9]; //Declare array
 
-        public Rectangle playerRec;//variable for a rectangle to place our image in
+        public Rectangle playerRec;//Variable for a rectangle to place our image in
         //Create a constructor (initialises the values of the fields)
         public Player()
         {
@@ -28,43 +28,41 @@ namespace FrmRide
             playerRec = new Rectangle(x, y, width, height);
         }
 
-        //methods
         public void drawPlayer(Graphics g)
         {
-            g.DrawImage(player, playerRec);
+            g.DrawImage(player, playerRec); //Draw player image
         }
 
         public void movePlayer(string move)
         {
-            playerRec.Location = new Point(x, y);
+            playerRec.Location = new Point(x, y); //Move playerrec to the x and y values
 
-            if (move == "right")
+            if (move == "right") //If right arrow is pressed
             {
-                if (playerRec.Location.X > 470) // is player within 50 of right side
+                if (playerRec.Location.X > 470) //If player is within 50 of right side
                 {
-
-                    x = 470;
+                    x = 470; //Stop moving
                     playerRec.Location = new Point(x, y);
                 }
-                else
+                else //If player is anywhere else
                 {
-                    x += 5;
+                    x += 5; //Move 5 to the right
                     playerRec.Location = new Point(x, y);
                 }
 
             }
 
-            if (move == "left")
+            if (move == "left") //If left arrow pressed
             {
-                if (playerRec.Location.X < 10) // is player within 10 of left side
+                if (playerRec.Location.X < 10) //If player within 10 of left side
                 {
 
-                    x = 10;
+                    x = 10; //Stop moving
                     playerRec.Location = new Point(x, y);
                 }
-                else
+                else //If player is anywhere else
                 {
-                    x -= 5;
+                    x -= 5; //Move 5 to the left
                     playerRec.Location = new Point(x, y);
                 }
             }

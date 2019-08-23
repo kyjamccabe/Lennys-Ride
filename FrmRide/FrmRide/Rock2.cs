@@ -14,7 +14,7 @@ namespace FrmRide
         public Image rock2;//variable for the rock2's image
 
         public Rectangle rock2Rec;//variable for a rectangle to place our image in
-        Random rnd = new Random();
+        Random rnd = new Random(); //Generate a random number
 
         //Create a constructor (initialises the values of the fields)
         public Rock2()
@@ -27,22 +27,21 @@ namespace FrmRide
             rock2Rec = new Rectangle(x, y, width, height);
         }
 
-        // Methods for the Planet class
         public void drawRock2(Graphics g)
         {
-            g.DrawImage(rock2, rock2Rec);
+            g.DrawImage(rock2, rock2Rec); //Draw rock image
         }
 
         public void moveRock2()
         {
-            if (x <= -50)
+            if (x <= -50) //If rock is to the left of the screen
             {
-                x = 500 + rnd.Next(500, 1000);
+                x = 500 + rnd.Next(100, 600); //Move back to a random position on the right
                 rock2Rec.Location = new Point(x, y);
             }
-            else
+            else //If rock is anywhere else
             {
-                x -= 2;
+                x -= 2; //Move 2 to the left
                 rock2Rec.Location = new Point(x, y);
             }
         }
