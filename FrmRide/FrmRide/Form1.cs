@@ -231,22 +231,19 @@ namespace FrmRide
             if (score >= 10)
             {
                 rock2.x -= 2;
-                rock.x -= 2;
-                tmrAnim.Interval = 25;
+                rock.x -= 2;               
             }
 
             if (score >= 15)
             {
                 rock2.x -= 2;
                 rock.x -= 2;
-                tmrAnim.Interval = 12;
             }
 
             if (score >= 20)
             {
                 rock2.x -= 2;
                 rock.x -= 2;
-                tmrAnim.Interval = 6;
             }
         }
 
@@ -273,6 +270,7 @@ namespace FrmRide
             tmrRock.Enabled = true;
             tmrPlayer.Enabled = true;
             tmrAnim.Enabled = true;
+            tmrAnim.Interval = 100;
             tmrReset.Enabled = false;
             rock.moveRock();
             rock2.moveRock2();

@@ -36,7 +36,7 @@ namespace FrmRide
         {
             if (x <= -50) //If rock is to the left of the screen
             {
-                x = 500 + rnd.Next(100, 600); //Move back to a random position on the right
+                x = 500 + rnd.Next(50, 600); //Move back to a random position on the right
                 rock2Rec.Location = new Point(x, y);
             }
             else //If rock is anywhere else
