@@ -20,9 +20,9 @@ namespace FrmRide
         public Rock()
         {
             x = 550;
-            y = 315;
+            y = 320;
             width = 50;
-            height = 40;
+            height = 50;
             rock = Image.FromFile("rock1.png");
             rockRec = new Rectangle(x, y, width, height);
         }
